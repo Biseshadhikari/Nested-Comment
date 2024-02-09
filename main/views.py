@@ -28,10 +28,15 @@ def questionPage(request, id):
             raise
 
     question = Question.objects.get(id=id)
+    # responses = Question.get_response()
+    # response = Response.get_response()
+
     context = {
         'question': question,
         'response_form': response_form,
         'reply_form': reply_form,
+        # 'responses':responses,
+        # 'response':response
     }
     return render(request, 'question.html', context)
     
@@ -112,3 +117,4 @@ def replyPage(request):
             raise
 
     return redirect('index')
+
